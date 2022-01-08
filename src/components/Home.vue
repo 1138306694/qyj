@@ -38,6 +38,7 @@
       </el-aside>
 <!--      右侧主体部分-->
       <el-main class="main">
+
         <router-view></router-view>
       </el-main>
     </el-container>

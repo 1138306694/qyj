@@ -10,6 +10,7 @@ import axios from 'axios'
 import qs from 'qs'
 import message from "element-ui/packages/message";
 
+
 Vue.prototype.$qs = qs;
 Vue.use(ElementUI);
 axios.interceptors.request.use(config=>{
