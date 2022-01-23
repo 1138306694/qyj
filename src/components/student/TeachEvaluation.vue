@@ -1,7 +1,12 @@
 <template>
 <!--基本信息页面-->
   <div>
-    <h3>教学评价表</h3>
+    <div>
+      <el-breadcrumb separator="/" class="breadcrumb">
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="/">教学评价表</a></el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
   </div>
 </template>
 

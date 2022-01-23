@@ -46,8 +46,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item prop="password">
-              <el-input type="password" v-model="loginForm.password" placeholder="请输入密码">
-                <i slot="suffix" class="el-icon-key"></i>
+              <el-input type="password" v-model="loginForm.password" placeholder="请输入密码" show-password>
               </el-input>
             </el-form-item>
           </el-col>
@@ -141,7 +140,7 @@ export default {
             //记录token
             window.sessionStorage.setItem('token', result.data.token);
             //跳转到/home
-            await this.$router.push('/home');
+            await this.$router.push('/baseInfo');
           }
           if (result.code === 500) {
             this.$message.error(result.msg);

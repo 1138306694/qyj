@@ -69,7 +69,6 @@
                 class="avatar-uploader"
                 action="https://jsonplaceholder.typicode.com/posts/"
                 :show-file-list="false"
-                :on-success="handleAvatarSuccess"
                 :before-upload="beforeAvatarUpload">
               <img v-if="imageUrl" :src="imageUrl" class="avatar">
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -166,7 +165,6 @@
           {{baseInfo.graduationDate}}
         </el-descriptions-item>
       </el-descriptions>
-
       <br>
       <br>
       <br>
@@ -217,8 +215,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "/src/assets/css/global.css";
-
 .my-label{
   background: #b4e7ff;
 }

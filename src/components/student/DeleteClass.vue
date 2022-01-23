@@ -1,7 +1,12 @@
 <template>
 <!--基本信息页面-->
   <div>
-    <h3>用户基本信息</h3>
+    <div>
+      <el-breadcrumb separator="/" class="breadcrumb">
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="/">退选</a></el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
   </div>
 </template>
 
@@ -14,7 +19,7 @@ export default {
     }
   },
   created() {
-    document.title = '基本信息'
+    document.title = '退选'
   }
 }
 </script>

@@ -23,6 +23,7 @@ import Notice from "../components/student/Notice";
 import Class from "../components/student/Class";
 import DeleteClass from "../components/student/DeleteClass";
 import AddClass from "../components/student/AddClass";
+import LeaveDetailInfo from "../components/student/LeaveDetailInfo";
 Vue.use(VueRouter)
 
 const routes = []
@@ -126,6 +127,10 @@ const router = new VueRouter({
                 {
                     path: '/notice',
                     component: Notice
+                },
+                {
+                    path: '/leaveDetailInfo',
+                    component: LeaveDetailInfo
                 }
             ]
         }

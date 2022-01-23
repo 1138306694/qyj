@@ -1,7 +1,12 @@
 <template>
 <!--基本信息页面-->
   <div>
-    <h3>考试信息</h3>
+    <div>
+      <el-breadcrumb separator="/" class="breadcrumb">
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="/">考试信息</a></el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
   </div>
 </template>
 
