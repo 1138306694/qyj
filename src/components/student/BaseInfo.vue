@@ -164,6 +164,24 @@
           </template>
           {{baseInfo.graduationDate}}
         </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label">
+            辅修学位
+          </template>
+          {{baseInfo.minorDegree}}
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label">
+            辅修专业
+          </template>
+          {{baseInfo.minor}}
+        </el-descriptions-item>
+        <el-descriptions-item>
+          <template slot="label">
+            辅修承接单位
+          </template>
+          {{baseInfo.minorCompany}}
+        </el-descriptions-item>
       </el-descriptions>
       <br>
       <br>

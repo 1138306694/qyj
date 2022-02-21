@@ -17,36 +17,36 @@
           <el-table-column
               type="index"
               label="序号"
-              width="50">
+              width="auto">
           </el-table-column>
           <el-table-column
               prop="createDate"
               label="请假日期"
-              width="200">
+              width="auto">
           </el-table-column>
           <el-table-column
               prop="startDate"
               label="开始时间"
-              width="200">
+              width="auto">
           </el-table-column>
           <el-table-column
               prop="endDate"
               label="结束时间"
-              width="200">
+              width="auto">
           </el-table-column>
           <el-table-column
               prop="instructor"
               label="审批人"
-              width="100">
+              width="auto">
           </el-table-column>
           <el-table-column
               prop="type"
               label="审批状态"
-              width="80">
+              width="auto">
           </el-table-column>
           <el-table-column
               label="操作"
-              width="189">
+              width="auto">
             <template slot-scope="scope">
               <el-button type="primary" size="mini" plain @click="showInfo(scope.row)">详情</el-button>
             </template>

@@ -1,5 +1,4 @@
 <template>
-  <!--学业预警-->
   <div>
     <div>
       <el-breadcrumb separator="/" class="breadcrumb">
@@ -29,40 +28,40 @@
               width="50">
           </el-table-column>
           <el-table-column
-              prop="createDate"
+              prop="semester"
               label="学年学期"
-              width="150">
+              width="auto">
           </el-table-column>
           <el-table-column
-              prop="startDate"
+              prop="className"
               label="课程"
-              width="200">
+              width="auto">
           </el-table-column>
           <el-table-column
-              prop="endDate"
+              prop="credit"
               label="学分"
-              width="89">
+              width="auto">
           </el-table-column>
           <el-table-column
-              prop="instructor"
+              prop="classType"
               label="课程类别"
-              width="150">
+              width="auto">
           </el-table-column>
           <el-table-column
-              prop="type"
+              prop="assMethod"
               label="考核方式"
-              width="80">
+              width="auto">
           </el-table-column>
           <el-table-column
-              prop="type"
+              prop="classHours"
               label="学时"
-              width="80">
+              width="auto">
           </el-table-column>
           <el-table-column
               label="操作"
-              width="160">
+              width="auto">
             <template slot-scope="scope">
-              <el-button type="primary" size="mini" plain @click="showCoursesInfo(scope.row)">详情</el-button>
+              <el-button type="primary" size="mini" plain @click="showDetailClassInfo(scope.row)">详情</el-button>
             </template>
 
           </el-table-column>
@@ -80,32 +79,32 @@
               width="50">
           </el-table-column>
           <el-table-column
-              prop="createDate"
+              prop="semester"
               label="学年学期"
               width="150">
           </el-table-column>
           <el-table-column
-              prop="startDate"
+              prop="practiceName"
               label="环节"
               width="200">
           </el-table-column>
           <el-table-column
-              prop="endDate"
+              prop="credit"
               label="学分"
               width="89">
           </el-table-column>
           <el-table-column
-              prop="instructor"
+              prop="practiceType"
               label="环节类别"
               width="150">
           </el-table-column>
           <el-table-column
-              prop="type"
+              prop="assMethod"
               label="考核方式"
               width="80">
           </el-table-column>
           <el-table-column
-              prop="type"
+              prop="practiceWeek"
               label="周数"
               width="80">
           </el-table-column>
@@ -113,7 +112,7 @@
               label="操作"
               width="160">
             <template slot-scope="scope">
-              <el-button type="primary" size="mini" plain @click="showPracticeInfo(scope.row)">详情</el-button>
+              <el-button type="primary" size="mini" plain @click="showDetailPracticeInfo(scope.row)">详情</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -127,12 +126,70 @@ export default {
   name: "StudentsProgress",
   data() {
     return {
-      courses:[],
-      practice:[]
+      courses: [],
+      practice: []
     }
   },
   created() {
     document.title = '学业进度'
+    this.getClassInfo()
+    this.getPracticeInfo()
+  },
+  methods: {
+    async getClassInfo() {
+      const {data: classInfo} = await this.$http.get("http://localhost:8880/user/getClassInfo");
+      console.log(classInfo);
+      for (let item of classInfo.data) {
+        let oldSemester = item.semester;
+        item.semester = '20' + oldSemester.substring(0, 2) + '学年第' + oldSemester.charAt(2) + '学期';
+
+        if (item.classType === '1') {
+          item.classType = '必修公共课'
+        }
+        if (item.classType === '2') {
+          item.classType = '必修专业基础课'
+        }
+        if (item.classType === '3') {
+          item.classType = '任选公共课'
+        }
+        if (item.classType === '4') {
+          item.classType = '限选课'
+        }
+        if (item.assMethod === '1') {
+          item.assMethod = '考试'
+        }
+        if (item.assMethod === '2') {
+          item.assMethod = '考察'
+        }
+      }
+      this.courses = classInfo.data;
+    },
+    async getPracticeInfo() {
+      const {data: classInfo} = await this.$http.get("http://localhost:8880/user/getPracticeInfo");
+      console.log(classInfo);
+      for (let item of classInfo.data) {
+        let oldSemester = item.semester;
+        item.semester = '20' + oldSemester.substring(0, 2) + '学年第' + oldSemester.charAt(2) + '学期';
+        if (item.assMethod === '1') {
+          item.assMethod = '考查'
+        }
+        if (item.assMethod === '2') {
+          item.assMethod = '考核'
+        }
+        if (item.assMethod === '3') {
+          item.assMethod = '其他'
+        }
+      }
+      this.practice = classInfo.data;
+    },
+    showDetailClassInfo(data){
+      let className =  data.className;
+      this.$router.push({path:'/classDetailInfo',query:{"className":className}});
+    },
+    showDetailPracticeInfo(data){
+      let practiceName =  data.practiceName;
+      this.$router.push({path:'/practiceDetailInfo',query:{"practiceName":practiceName}});
+    }
   }
 }
 </script>

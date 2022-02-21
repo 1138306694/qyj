@@ -119,7 +119,7 @@ export default {
     }
   },
   created() {
-    document.title = '登录',
+    document.title = '登录'
         this.getVerCode();
   },
   methods: {
@@ -140,7 +140,7 @@ export default {
             //记录token
             window.sessionStorage.setItem('token', result.data.token);
             //跳转到/home
-            await this.$router.push('/baseInfo');
+            await this.$router.push('/home');
           }
           if (result.code === 500) {
             this.$message.error(result.msg);

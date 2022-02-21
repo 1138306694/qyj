@@ -24,6 +24,10 @@ import Class from "../components/student/Class";
 import DeleteClass from "../components/student/DeleteClass";
 import AddClass from "../components/student/AddClass";
 import LeaveDetailInfo from "../components/student/LeaveDetailInfo";
+import ClassDetailInfo from "../components/student/classDetailInfo";
+import PracticeDetailInfo from "../components/student/practiceDetailInfo";
+import PickClassResult from "../components/student/PickClassResult";
+import TeaEvaluationDetail from "../components/student/TeaEvaluationDetail";
 Vue.use(VueRouter)
 
 const routes = []
@@ -131,7 +135,23 @@ const router = new VueRouter({
                 {
                     path: '/leaveDetailInfo',
                     component: LeaveDetailInfo
-                }
+                },
+                {
+                    path: '/classDetailInfo',
+                    component: ClassDetailInfo
+                },
+                {
+                    path: '/practiceDetailInfo',
+                    component: PracticeDetailInfo
+                },
+                {
+                    path: '/pickClassResult',
+                    component: PickClassResult
+                },
+                {
+                    path: '/teaEvaluationDetail',
+                    component: TeaEvaluationDetail
+                },
             ]
         }
     ]
