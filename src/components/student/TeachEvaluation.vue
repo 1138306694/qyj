@@ -4,7 +4,7 @@
     <div>
       <el-breadcrumb separator="/" class="breadcrumb">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item><a href="/">教学评价表</a></el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path:'/teachEvaluation'}">教学评价表</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div>
@@ -68,7 +68,7 @@
                 label="操作"
                 width="auto">
               <template slot-scope="scope">
-                <el-button plain @click="teaEvaluationDetail(scope.row)">详情</el-button>
+                <el-button plain @click="teaEvaluationDetail(scope.row)">评教</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -146,7 +146,9 @@ export default {
     },
     teaEvaluationDetail(data){
       let className = data.className
-      this.$router.push({path:'/teaEvaluationDetail',query:{"className":className}})
+      let teacherName = data.teacherName
+      let semester = data.semester
+      this.$router.push({path:'/teaEvaluationDetail',query:{"className":className,"teacherName":teacherName,"semester":semester}})
     }
 
   }

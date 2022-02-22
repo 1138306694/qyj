@@ -75,9 +75,6 @@
                 width="auto">
             </el-table-column>
           </el-table>
-          <div style="margin-top: 10px;margin-left: 838px">
-            <el-button @click="exportExcel" >下载课表</el-button>
-          </div>
         </div>
       </div>
     </div>
