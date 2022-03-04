@@ -33,7 +33,7 @@
               <el-button type="primary" @click="search">检索</el-button>
             </el-form-item>
           </el-form>
-          <el-divider content-position="center">教学安排表</el-divider>
+          <el-divider content-position="center">教学评价表</el-divider>
           <el-table
               :data="teaEvaluation"
               border

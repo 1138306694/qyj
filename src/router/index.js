@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from "../components/Login.vue";
 import Home from "../components/Home.vue";
-import Welcome from "../components/Welcome";
 import BaseInfo from "../components/student/BaseInfo";
 import UpdatePassword from "../components/student/UpdatePassword";
 import StudentsWarn from "../components/student/StudentsWarn";
@@ -12,7 +11,6 @@ import Leave from "../components/student/Leave";
 import LeaveCancellation from "../components/student/LeaveCancellation";
 import TeachTable from "../components/student/TeachTable";
 import TeachEvaluation from "../components/student/TeachEvaluation";
-import ExamInfo from "../components/student/ExamInfo";
 import ExamNotification from "../components/student/ExamNotification";
 import ExamTable from "../components/student/ExamTable";
 import Score from "../components/student/Score";
@@ -48,10 +46,6 @@ const router = new VueRouter({
             component: Home,
             redirect: '/welcome',
             children: [
-                {
-                    path: '/welcome',
-                    component: Welcome
-                },
                 {
                     path: '/baseInfo',
                     component: BaseInfo
@@ -99,10 +93,6 @@ const router = new VueRouter({
                 {
                     path:'/teachEvaluation',
                     component: TeachEvaluation
-                },
-                {
-                    path:'/examInfo',
-                    component: ExamInfo
                 },
                 {
                     path:'/examNotification',

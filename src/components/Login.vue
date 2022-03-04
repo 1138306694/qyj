@@ -140,7 +140,7 @@ export default {
             //记录token
             window.sessionStorage.setItem('token', result.data.token);
             //跳转到/home
-            await this.$router.push('/home');
+            await this.$router.push('/baseInfo');
           }
           if (result.code === 500) {
             this.$message.error(result.msg);
