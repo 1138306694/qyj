@@ -102,6 +102,7 @@ export default {
       this.$refs["leaveForm"].resetFields();
       this.defaultInfo();
     },
+    //个人信息的渲染
     async defaultInfo(){
       const {data: leaveData} = await this.$http.get("http://localhost:8880/user/leaveDefaultInfo");
       console.log(leaveData.data);
@@ -110,6 +111,7 @@ export default {
       this.leaveFormData.userId = leaveData.data.userId;
       this.leaveFormData.instructor = leaveData.data.instructor;
     },
+    //提交请假申请
     onSubmit: async function () {
       let userName = this.leaveFormData.userName;
       let classBj = this.leaveFormData.classBj;
@@ -132,7 +134,6 @@ export default {
         "formData":formData,
       });
       console.log(leaveData);
-
       if(leaveData.code === 200){
         this.$message.success(leaveData.msg);
         await this.$router.push('/leaveCancellation');

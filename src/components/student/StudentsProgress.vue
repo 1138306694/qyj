@@ -3,7 +3,7 @@
     <div>
       <el-breadcrumb separator="/" class="breadcrumb">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path:'/studentsProgress'}">学业进度</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path:'/studentsProgress'}">培养方案</el-breadcrumb-item>
       </el-breadcrumb>
 
       <div style="margin-top: 50px;margin-left: 150px;width: 75%">
@@ -136,6 +136,7 @@ export default {
     this.getPracticeInfo()
   },
   methods: {
+    //渲染课程信息
     async getClassInfo() {
       const {data: classInfo} = await this.$http.get("http://localhost:8880/user/getClassInfo");
       console.log(classInfo);
@@ -164,6 +165,7 @@ export default {
       }
       this.courses = classInfo.data;
     },
+    //渲染实践活动信息
     async getPracticeInfo() {
       const {data: classInfo} = await this.$http.get("http://localhost:8880/user/getPracticeInfo");
       console.log(classInfo);
@@ -182,10 +184,12 @@ export default {
       }
       this.practice = classInfo.data;
     },
+    //课程详情展示页面跳转
     showDetailClassInfo(data){
       let className =  data.className;
       this.$router.push({path:'/classDetailInfo',query:{"className":className}});
     },
+    //实践活动详细展示页面跳转
     showDetailPracticeInfo(data){
       let practiceName =  data.practiceName;
       this.$router.push({path:'/practiceDetailInfo',query:{"practiceName":practiceName}});

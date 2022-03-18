@@ -1,6 +1,6 @@
 <template>
 <!--基本信息页面-->
-  <div>
+  <div class="login">
     <el-breadcrumb separator="/" class="breadcrumb">
       <el-breadcrumb-item :to="{ path: '/home' }"> <span>首页</span></el-breadcrumb-item>
       <el-breadcrumb-item><a href="/"><span>基本信息</span></a></el-breadcrumb-item>

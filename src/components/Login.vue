@@ -2,10 +2,10 @@
   <div class="login">
     <div class="login_core">
       <!--      头像区-->
-      <div class="avatar_box">
-        <el-avatar :size="100"
-                   src=""></el-avatar>
-      </div>
+<!--      <div class="avatar_box">-->
+<!--        <el-avatar :size="100"-->
+<!--                   src=""></el-avatar>-->
+<!--      </div>-->
       <!--      通过ref直接获取表单的引用对象-->
       <el-form ref="LoginRef" :rules="rules" :model="loginForm" label-width="10px" class="logoIn_form"
                style="margin-top: 40px">
@@ -123,6 +123,7 @@ export default {
         this.getVerCode();
   },
   methods: {
+    //提交登录请求
     onSubmit: function () {
       this.$refs.LoginRef.validate(async (valid) => {
         if (!valid) {
